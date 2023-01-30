@@ -1,5 +1,6 @@
 import 'package:dw9_delivery_app/app/core/ui/styles/app_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
+import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_button.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -14,12 +15,16 @@ class SplashPage extends StatelessWidget {
       body: Column(
         children: [
           Container(),
-          ElevatedButton(onPressed: () {}, child: const Text('Teste')),
+          DeliveryButton(
+            label: 'Teste Batata Assada',
+            onPressed: () {},
+            width: 200,
+            height: 200,
+          ),
           const TextField(
-            decoration: InputDecoration(
-              labelText: 'Nome',
-            )
-          )
+              decoration: InputDecoration(
+            labelText: 'Nome',
+          ))
         ],
       ),
     );
