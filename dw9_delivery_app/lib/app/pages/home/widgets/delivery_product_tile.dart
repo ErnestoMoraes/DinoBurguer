@@ -48,7 +48,7 @@ class DeliveryProductTile extends StatelessWidget {
           ),
           FadeInImage.assetNetwork(
             placeholder: 'assets/images/loading.gif',
-            image: product.imageUrl,
+            image: product.image,
             height: 100,
             width: 100,
             fit: BoxFit.contain,
