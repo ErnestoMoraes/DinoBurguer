@@ -3,11 +3,9 @@
 A new Flutter project.
 
 ## Padrão MVC:
- - App
-    - core
-    - dto
-    - models
-    - pages
-    - repositories
+
+## Aulas
+ 1. Aula 01 - [ ]
+ 2. Aula 02 - [ ]
 
 
