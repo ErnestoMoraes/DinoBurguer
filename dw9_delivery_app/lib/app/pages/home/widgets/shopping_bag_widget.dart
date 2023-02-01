@@ -3,6 +3,7 @@ import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class ShoppingBagWidget extends StatelessWidget {
   final List<OrderProductDto> bag;
@@ -12,17 +13,29 @@ class ShoppingBagWidget extends StatelessWidget {
     required this.bag,
   }) : super(key: key);
 
+  Future<void> _goOrder(BuildContext context) async {
+    final navigator = Navigator.of(context);
+    final sp = await SharedPreferences.getInstance();
+    if(!sp.containsKey('accessToken')){
+      // Envio para login
+      final loginResult = await navigator.pushNamed('/auth/login');
+    } 
+      // Envio para o order
+  }
+
   @override
   Widget build(BuildContext context) {
-    var totalBag = bag.fold<double>(
-      0.0,
-      (total, element) => total += element.totalPrice,
-    ).currencyPTBR;
+    var totalBag = bag
+        .fold<double>(
+          0.0,
+          (total, element) => total += element.totalPrice,
+        )
+        .currencyPTBR;
 
     return Container(
       width: context.screenWidth,
       height: 90,
-      padding: EdgeInsets.all(20),
+      padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
@@ -37,7 +50,9 @@ class ShoppingBagWidget extends StatelessWidget {
         ),
       ),
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: () {
+          _goOrder(context);
+        },
         child: Stack(
           children: [
             const Align(
