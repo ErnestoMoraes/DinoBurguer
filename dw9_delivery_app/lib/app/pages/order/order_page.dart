@@ -1,9 +1,11 @@
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
+import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_button.dart';
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
 import 'package:dw9_delivery_app/app/models/product_model.dart';
 import 'package:dw9_delivery_app/app/pages/order/widget/order_field.dart';
 import 'package:dw9_delivery_app/app/pages/order/widget/order_product_title.dart';
+import 'package:dw9_delivery_app/app/pages/order/widget/payment_types_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:validatorless/validatorless.dart';
 
@@ -31,7 +33,7 @@ class OrderPage extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              childCount: 2,
+              childCount: 10,
               (context, index) {
                 return Column(
                   children: [
@@ -69,7 +71,7 @@ class OrderPage extends StatelessWidget {
                   color: Colors.grey,
                 ),
                 const SizedBox(
-                   height: 10,
+                  height: 10,
                 ),
                 OrderField(
                   title: 'Endereço de Entrega',
@@ -78,7 +80,7 @@ class OrderPage extends StatelessWidget {
                   hinText: 'Digite o endereço',
                 ),
                 const SizedBox(
-                   height: 10,
+                  height: 10,
                 ),
                 OrderField(
                   title: 'CPF',
@@ -86,9 +88,25 @@ class OrderPage extends StatelessWidget {
                   validator: Validatorless.required('Campo obrigatório'),
                   hinText: 'Digite o CPF',
                 ),
+                const PaymentTypesTile()
               ],
             ),
           ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                const Divider(
+                  color: Colors.grey,
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(15.0),
+                  child: DeliveryButton(label: 'Finalizar', onPressed: () {}, width: double.infinity,height: 48,),
+                )
+              ],
+            ),
+          )
         ],
       ),
     );
