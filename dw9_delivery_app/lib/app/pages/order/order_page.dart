@@ -2,8 +2,10 @@ import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
 import 'package:dw9_delivery_app/app/models/product_model.dart';
+import 'package:dw9_delivery_app/app/pages/order/widget/order_field.dart';
 import 'package:dw9_delivery_app/app/pages/order/widget/order_product_title.dart';
 import 'package:flutter/material.dart';
+import 'package:validatorless/validatorless.dart';
 
 class OrderPage extends StatelessWidget {
   const OrderPage({Key? key}) : super(key: key);
@@ -36,9 +38,7 @@ class OrderPage extends StatelessWidget {
                     OrderProductTitle(
                       index: index,
                       orderProduct: OrderProductDto(
-                        product: ProductModel.fromMap({}),
-                        amount: 10
-                      ),
+                          product: ProductModel.fromMap({}), amount: 10),
                     ),
                     const Divider(
                       color: Colors.grey,
@@ -47,7 +47,36 @@ class OrderPage extends StatelessWidget {
                 );
               },
             ),
-          )
+          ),
+          SliverToBoxAdapter(
+            child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text('Total',
+                          style: context.textStyles.textExtraBold
+                              .copyWith(fontSize: 16)),
+                      Text('R\$ 19,90',
+                          style: context.textStyles.textExtraBold
+                              .copyWith(fontSize: 20)),
+                    ],
+                  ),
+                ),
+                const Divider(
+                  color: Colors.grey,
+                ),
+                OrderField(
+                  title: 'Endereço de Entrega',
+                  controller: TextEditingController(),
+                  validator: Validatorless.required('Campo obrigatório'),
+                  hinText: 'Digite o endereço',
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );
