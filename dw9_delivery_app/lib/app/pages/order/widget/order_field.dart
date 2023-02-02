@@ -21,15 +21,19 @@ class OrderField extends StatelessWidget {
       borderSide: BorderSide(color: Colors.grey),
     );
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
+      padding: const EdgeInsets.symmetric(horizontal: 3.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(
             height: 35,
-            child: Text(
-              title,
-              style: context.textStyles.textRegular.copyWith(fontSize: 16, overflow: TextOverflow.ellipsis),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              child: Text(
+                title,
+                style: context.textStyles.textRegular
+                    .copyWith(fontSize: 16, overflow: TextOverflow.ellipsis),
+              ),
             ),
           ),
           TextFormField(

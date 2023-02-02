@@ -68,12 +68,24 @@ class OrderPage extends StatelessWidget {
                 const Divider(
                   color: Colors.grey,
                 ),
+                const SizedBox(
+                   height: 10,
+                ),
                 OrderField(
                   title: 'Endereço de Entrega',
                   controller: TextEditingController(),
                   validator: Validatorless.required('Campo obrigatório'),
                   hinText: 'Digite o endereço',
-                )
+                ),
+                const SizedBox(
+                   height: 10,
+                ),
+                OrderField(
+                  title: 'CPF',
+                  controller: TextEditingController(),
+                  validator: Validatorless.required('Campo obrigatório'),
+                  hinText: 'Digite o CPF',
+                ),
               ],
             ),
           ),
