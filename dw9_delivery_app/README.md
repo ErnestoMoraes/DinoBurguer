@@ -9,3 +9,6 @@ A new Flutter project.
  2. Aula 02 - [ ]
 
 
+Lembrar de rodar:
+flutter pub run build_runner watch -d
+antes de coemçar!
