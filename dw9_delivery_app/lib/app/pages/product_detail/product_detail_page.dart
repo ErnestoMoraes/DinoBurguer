@@ -59,7 +59,6 @@ class _ProductDetailPageState
                       amount: amount,
                     ),
                   );
-                  print(amount);
                 },
                 child: Text('Confirmar', style: context.textStyles.textBold),
               ),

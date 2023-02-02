@@ -17,22 +17,22 @@ class LoginPage extends StatelessWidget {
               padding: const EdgeInsets.all(20.0),
               child: Form(
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
                     'Login',
                     style: context.textStyles.textTitle,
                   ),
                   const SizedBox(
-                     height: 30,
+                    height: 30,
                   ),
                   TextFormField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'Email',
                     ),
                   ),
                   const SizedBox(
-                     height: 30,
+                    height: 30,
                   ),
                   TextFormField(
                     decoration: const InputDecoration(
@@ -40,7 +40,7 @@ class LoginPage extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(
-                     height: 30,
+                    height: 30,
                   ),
                   Center(
                     child: DeliveryButton(
@@ -48,9 +48,37 @@ class LoginPage extends StatelessWidget {
                       label: 'Entrar',
                       onPressed: () {},
                     ),
-                  )
+                  ),
                 ],
               )),
+            ),
+          ),
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Align(
+                alignment: Alignment.bottomCenter,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Não possui um aconta?',
+                      style: context.textStyles.textBold,
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.of(context).pushNamed('/auth/register');
+                      },
+                      child: Text(
+                        'Cadastre-se',
+                        style: context.textStyles.textBold
+                            .copyWith(color: Colors.blue),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ),
         ],
