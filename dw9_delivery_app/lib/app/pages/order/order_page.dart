@@ -33,7 +33,7 @@ class OrderPage extends StatelessWidget {
           ),
           SliverList(
             delegate: SliverChildBuilderDelegate(
-              childCount: 10,
+              childCount: 1,
               (context, index) {
                 return Column(
                   children: [
