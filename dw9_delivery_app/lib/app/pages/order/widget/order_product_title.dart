@@ -46,7 +46,9 @@ class OrderProductTitle extends StatelessWidget {
                       Text(
                         (orderProduct.amount * product.price).currencyPTBR,
                         style: context.textStyles.textMedium.copyWith(
-                            fontSize: 14, color: context.colors.secondary),
+                          fontSize: 14,
+                          color: context.colors.secondary,
+                        ),
                       ),
                       DeliveryIncrementDecrementButton.compact(
                         amount: 1,
