@@ -32,8 +32,13 @@ class OrderState extends Equatable {
   const OrderState.inital()
       : status = OrderSatus.inital,
         orderProducts = const [],
-        paymentTypes = const [], 
+        paymentTypes = const [],
         errorMessage = null;
+
+  double get totalOder => orderProducts.fold(
+        0.0,
+        (previousValue, element) => previousValue + element.totalPrice,
+      );
 
   @override
   List<Object?> get props => [status, orderProducts, paymentTypes];

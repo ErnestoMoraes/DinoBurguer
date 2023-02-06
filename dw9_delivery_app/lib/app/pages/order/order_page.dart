@@ -1,3 +1,4 @@
+import 'package:dw9_delivery_app/app/core/extensions/formatter_extension.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_button.dart';
@@ -100,12 +101,19 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Text('Total',
+                          Text('Total do pedido',
                               style: context.textStyles.textExtraBold
                                   .copyWith(fontSize: 16)),
-                          Text('R\$ 19,90',
-                              style: context.textStyles.textExtraBold
-                                  .copyWith(fontSize: 20)),
+                          BlocSelector<OrderController, OrderState, double>(
+                            selector: (state) => state.totalOder,
+                            builder: (context, totalOder) {
+                              return Text(
+                                totalOder.currencyPTBR,
+                                style: context.textStyles.textExtraBold
+                                    .copyWith(fontSize: 20),
+                              );
+                            },
+                          ),
                         ],
                       ),
                     ),
