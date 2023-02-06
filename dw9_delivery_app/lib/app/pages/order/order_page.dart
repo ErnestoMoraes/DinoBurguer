@@ -2,6 +2,7 @@ import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_button.dart';
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
+import 'package:dw9_delivery_app/app/models/payment_type_model.dart';
 import 'package:dw9_delivery_app/app/pages/order/order_controller.dart';
 import 'package:dw9_delivery_app/app/pages/order/order_state.dart';
 import 'package:dw9_delivery_app/app/pages/order/widget/order_field.dart';
@@ -121,7 +122,15 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                     validator: Validatorless.required('Campo obrigatório'),
                     hinText: 'Digite o CPF',
                   ),
-                  const PaymentTypesTile()
+                  BlocSelector<OrderController, OrderState,
+                      List<PaymentTypeModel>>(
+                    selector: (state) => state.paymentTypes,
+                    builder: (context, paymentTypes) {
+                      return PaymentTypesTile(
+                        paymentTypes: paymentTypes,
+                      );
+                    },
+                  )
                 ],
               ),
             ),
