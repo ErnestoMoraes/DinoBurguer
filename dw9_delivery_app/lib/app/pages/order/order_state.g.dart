@@ -12,7 +12,8 @@ extension OrderSatusMatch on OrderSatus {
       required T Function() loading,
       required T Function() loaded,
       required T Function() updateOrder,
-      required T Function() error}) {
+      required T Function() error,
+      required T Function() confirmRemoveProdcut}) {
     final v = this;
     if (v == OrderSatus.inital) {
       return inital();
@@ -34,6 +35,10 @@ extension OrderSatusMatch on OrderSatus {
       return error();
     }
 
+    if (v == OrderSatus.confirmRemoveProdcut) {
+      return confirmRemoveProdcut();
+    }
+
     throw Exception('OrderSatus.match failed, found no match for: $this');
   }
 
@@ -43,7 +48,8 @@ extension OrderSatusMatch on OrderSatus {
       T Function()? loading,
       T Function()? loaded,
       T Function()? updateOrder,
-      T Function()? error}) {
+      T Function()? error,
+      T Function()? confirmRemoveProdcut}) {
     final v = this;
     if (v == OrderSatus.inital && inital != null) {
       return inital();
@@ -63,6 +69,10 @@ extension OrderSatusMatch on OrderSatus {
 
     if (v == OrderSatus.error && error != null) {
       return error();
+    }
+
+    if (v == OrderSatus.confirmRemoveProdcut && confirmRemoveProdcut != null) {
+      return confirmRemoveProdcut();
     }
 
     return any();
