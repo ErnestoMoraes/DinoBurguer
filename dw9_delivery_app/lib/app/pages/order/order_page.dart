@@ -42,7 +42,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
-                  controller.cancelDeleteProcess(); 
+                  controller.cancelDeleteProcess();
                 },
                 child: Text('Cancelar',
                     style: context.textStyles.textBold
@@ -71,18 +71,23 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
     return BlocListener<OrderController, OrderState>(
       listener: (context, state) {
         state.status.matchAny(
-            any: () => hideLoader(),
-            loading: () => showLoader(),
-            error: () {
-              hideLoader();
-              showError(state.errorMessage ?? 'Erro não informado');
-            },
-            confirmRemoveProdcut: () {
-              hideLoader();
-              if (state is OrderConfirmDeleteProductState) {
-                _showConfirmProductDialog(state);
-              }
-            });
+          any: () => hideLoader(),
+          loading: () => showLoader(),
+          error: () {
+            hideLoader();
+            showError(state.errorMessage ?? 'Erro não informado');
+          },
+          confirmRemoveProdcut: () {
+            hideLoader();
+            if (state is OrderConfirmDeleteProductState) {
+              _showConfirmProductDialog(state);
+            }
+          },
+          emptyBag: () {
+            showInfo('Carrinho vazio');
+            Navigator.pop(context, <OrderProductDto>[]);
+          }
+        );
       },
       child: WillPopScope(
         onWillPop: () async {

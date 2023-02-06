@@ -58,6 +58,11 @@ class OrderController extends Cubit<OrderState> {
       orders[index] = order.copyWith(amount: order.amount - 1);
     }
 
+    if(orders.isEmpty) {
+      emit(state.copyWith(status: OrderSatus.emptyBag));
+      return;
+    }
+
     emit(state.copyWith(orderProducts: orders, status: OrderSatus.updateOrder));
   }
 

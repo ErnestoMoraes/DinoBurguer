@@ -15,6 +15,7 @@ enum OrderSatus {
   updateOrder,
   error,
   confirmRemoveProdcut,
+  emptyBag,
 }
 
 class OrderState extends Equatable {
