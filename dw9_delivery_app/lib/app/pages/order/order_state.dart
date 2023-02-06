@@ -12,6 +12,7 @@ enum OrderSatus {
   inital,
   loading,
   loaded,
+  updateOrder,
   error,
 }
 

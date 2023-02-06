@@ -25,4 +25,11 @@ class OrderController extends Cubit<OrderState> {
       emit(state.copyWith(status: OrderSatus.error, errorMessage: 'Erro ao carregar pagina'));
     }
   }
+
+  void incrementProduct(int index) {
+    final orders = [...state.orderProducts];
+    final order = orders[index];
+    orders[index] = order.copyWith(amount: order.amount + 1);
+    emit(state.copyWith(orderProducts: orders, status: OrderSatus.updateOrder));
+  }
 }

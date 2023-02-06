@@ -11,6 +11,7 @@ extension OrderSatusMatch on OrderSatus {
       {required T Function() inital,
       required T Function() loading,
       required T Function() loaded,
+      required T Function() updateOrder,
       required T Function() error}) {
     final v = this;
     if (v == OrderSatus.inital) {
@@ -25,6 +26,10 @@ extension OrderSatusMatch on OrderSatus {
       return loaded();
     }
 
+    if (v == OrderSatus.updateOrder) {
+      return updateOrder();
+    }
+
     if (v == OrderSatus.error) {
       return error();
     }
@@ -37,6 +42,7 @@ extension OrderSatusMatch on OrderSatus {
       T Function()? inital,
       T Function()? loading,
       T Function()? loaded,
+      T Function()? updateOrder,
       T Function()? error}) {
     final v = this;
     if (v == OrderSatus.inital && inital != null) {
@@ -49,6 +55,10 @@ extension OrderSatusMatch on OrderSatus {
 
     if (v == OrderSatus.loaded && loaded != null) {
       return loaded();
+    }
+
+    if (v == OrderSatus.updateOrder && updateOrder != null) {
+      return updateOrder();
     }
 
     if (v == OrderSatus.error && error != null) {
