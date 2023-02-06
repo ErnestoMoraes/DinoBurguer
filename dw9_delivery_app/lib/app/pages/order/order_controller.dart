@@ -1,5 +1,6 @@
 import 'dart:developer';
 
+import 'package:dw9_delivery_app/app/dto/order_dto.dart';
 import 'package:dw9_delivery_app/app/dto/order_product_dto.dart';
 import 'package:dw9_delivery_app/app/pages/order/order_state.dart';
 import 'package:dw9_delivery_app/app/repositories/order/order_repository.dart';
@@ -58,7 +59,7 @@ class OrderController extends Cubit<OrderState> {
       orders[index] = order.copyWith(amount: order.amount - 1);
     }
 
-    if(orders.isEmpty) {
+    if (orders.isEmpty) {
       emit(state.copyWith(status: OrderSatus.emptyBag));
       return;
     }
@@ -72,5 +73,22 @@ class OrderController extends Cubit<OrderState> {
 
   clearBag() {
     emit(state.copyWith(status: OrderSatus.emptyBag));
+  }
+
+  Future<void> saveOrder({
+    required String address,
+    required String document,
+    required int paymentMethod,
+  }) async {
+    emit(state.copyWith(status: OrderSatus.loading));
+    await _orderRepository.saveOrder(
+      OrderDto(
+        products: state.orderProducts,
+        address: address,
+        document: document,
+        paymentMethod: paymentMethod,
+      ),
+    );
+    emit(state.copyWith(status: OrderSatus.success));
   }
 }

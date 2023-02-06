@@ -86,7 +86,14 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
           emptyBag: () {
             showInfo('Carrinho vazio');
             Navigator.pop(context, <OrderProductDto>[]);
-          }
+          },
+          success: () {
+            hideLoader();
+            Navigator.of(context).popAndPushNamed(
+              '/order/completed',
+              result: <OrderProductDto>[],
+            );
+          },
         );
       },
       child: WillPopScope(
@@ -226,7 +233,13 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                                 formKey.currentState?.validate() ?? false;
                             final paymentTypeSelected = paymentTypeId != null;
                             paymentTypeValid.value = paymentTypeSelected;
-                            if (isValid) {}
+                            if (isValid && paymentTypeSelected) {
+                              controller.saveOrder(
+                                address: addressEC.text,
+                                document: documentEC.text,
+                                paymentMethod: paymentTypeId!,
+                              );
+                            }
                           },
                           width: double.infinity,
                           height: 48,
