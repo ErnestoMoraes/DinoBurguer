@@ -6,10 +6,16 @@ import 'package:flutter_awesome_select/flutter_awesome_select.dart';
 
 class PaymentTypesTile extends StatelessWidget {
   final List<PaymentTypeModel> paymentTypes;
+  final ValueChanged<int> valueChanged;
+  final bool valid;
+  final String valueSelected;
 
   const PaymentTypesTile({
     super.key,
     required this.paymentTypes,
+    required this.valueChanged,
+    required this.valid,
+    required this.valueSelected,
   });
 
   @override
@@ -25,9 +31,11 @@ class PaymentTypesTile extends StatelessWidget {
           ),
           SmartSelect<String>.single(
             title: '',
-            selectedValue: '',
+            selectedValue: valueSelected,
             modalType: S2ModalType.bottomSheet,
-            onChange: (value) {},
+            onChange: (selected) {
+              valueChanged(int.parse(selected.value));
+            },
             tileBuilder: (context, state) {
               return InkWell(
                 onTap: state.showModal,
@@ -46,6 +54,29 @@ class PaymentTypesTile extends StatelessWidget {
                           ),
                           const Icon(Icons.arrow_forward_ios_rounded)
                         ],
+                      ),
+                    ),
+                    Visibility(
+                      visible: !valid,
+                      child: const Padding(
+                        padding: EdgeInsets.only(right: 10),
+                        child: Divider(
+                          color: Colors.red,
+                          thickness: 1,
+                        ),
+                      ),
+                    ),
+                    Visibility(
+                      visible: !valid,
+                      child: Padding(
+                        padding: const EdgeInsets.only(right: 10),
+                        child: Text(
+                          'Selecione uma forma de pagamento',
+                          style: context.textStyles.textRegular.copyWith(
+                            fontSize: 13,
+                            color: Colors.red,
+                          ),
+                        ),
                       ),
                     ),
                   ],
