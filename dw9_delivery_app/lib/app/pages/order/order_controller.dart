@@ -69,4 +69,8 @@ class OrderController extends Cubit<OrderState> {
   void cancelDeleteProcess() {
     emit(state.copyWith(status: OrderSatus.loaded));
   }
+
+  clearBag() {
+    emit(state.copyWith(status: OrderSatus.emptyBag));
+  }
 }
