@@ -1,4 +1,6 @@
 # API rest Json:
 
-Rode o comando: 
+### Baixe o projeto jungo com a aplicação.
+
+### Rode o comando: 
 ```json_rest_server run```
