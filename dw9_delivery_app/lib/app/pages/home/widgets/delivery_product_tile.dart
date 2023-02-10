@@ -70,21 +70,12 @@ class DeliveryProductTile extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(
-                  color: context.colors.secondary,
-                  width: 2,
-                ),
-              ),
-              child: FadeInImage.assetNetwork(
-                placeholder: 'assets/images/loading.gif',
-                image: product.image,
-                height: 100,
-                width: 100,
-                fit: BoxFit.cover,
-              ),
+            FadeInImage.assetNetwork(
+              placeholder: 'assets/images/loading.gif',
+              image: product.image,
+              height: 100,
+              width: 100,
+              fit: BoxFit.cover,
             ),
           ],
         ),
