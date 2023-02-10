@@ -36,6 +36,8 @@ class DeliveryProductTile extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Expanded(
               child: Column(
@@ -46,7 +48,7 @@ class DeliveryProductTile extends StatelessWidget {
                     child: Text(
                       product.name,
                       style: context.textStyles.textExtraBold
-                          .copyWith(fontSize: 20),
+                          .copyWith(fontSize: 16),
                     ),
                   ),
                   Visibility(
@@ -64,8 +66,8 @@ class DeliveryProductTile extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
                       product.price.currencyPTBR,
-                      style: context.textStyles.textBold.copyWith(
-                        fontSize: 13,
+                      style: context.textStyles.textSemiBold.copyWith(
+                        fontSize: 15,
                         color: context.colors.secondary,
                       ),
                     ),

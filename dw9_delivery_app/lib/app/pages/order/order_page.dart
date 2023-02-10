@@ -116,7 +116,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         Text('Carrinho', style: context.textStyles.textTitle),
                         IconButton(
                             onPressed: () => controller.clearBag(),
-                            icon: Image.asset('assets/images/trashRegular.png'))
+                            icon: Image.asset('assets/images/dino_pagamento_realisado.png'))
                       ],
                     ),
                   ),

@@ -27,7 +27,8 @@ class DeliveryButton extends StatelessWidget {
         ),
         child: Text(
           label,
-          style: context.textStyles.textExtraBold.copyWith(fontSize: 18, color: const Color.fromRGBO(68, 31, 75, 1)),
+          style: context.textStyles.textExtraBold.copyWith(
+              fontSize: 18, color: const Color.fromRGBO(68, 31, 75, 1)),
         ),
       ),
     );
