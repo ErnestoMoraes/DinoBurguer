@@ -49,12 +49,15 @@ class DeliveryProductTile extends StatelessWidget {
                           .copyWith(fontSize: 20),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(bottom: 10),
-                    child: Text(
-                      product.description,
-                      style:
-                          context.textStyles.textRegular.copyWith(fontSize: 13),
+                  Visibility(
+                    visible: product.description.isNotEmpty,
+                    child: Padding(
+                      padding: const EdgeInsets.only(bottom: 10),
+                      child: Text(
+                        product.description,
+                        style:
+                            context.textStyles.textRegular.copyWith(fontSize: 13),
+                      ),
                     ),
                   ),
                   Padding(

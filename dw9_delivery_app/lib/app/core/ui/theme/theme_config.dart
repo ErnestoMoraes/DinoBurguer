@@ -16,7 +16,7 @@ class ThemeConfig {
       backgroundColor: const Color.fromRGBO(68, 31, 75, 1),
       elevation: 0,
       centerTitle: true,
-      iconTheme: IconThemeData(color: Colors.black),
+      iconTheme: IconThemeData(color: Colors.white),
     ),
     primaryColor: ColorsApp.instance.primary,
     colorScheme: ColorScheme.fromSeed(
