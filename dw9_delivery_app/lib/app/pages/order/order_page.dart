@@ -116,7 +116,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         Text('Carrinho', style: context.textStyles.textTitle),
                         IconButton(
                             onPressed: () => controller.clearBag(),
-                            icon: Image.asset('assets/images/dino_pagamento_realisado.png'))
+                            icon: Image.asset('assets/images/trashRegular.png'))
                       ],
                     ),
                   ),
@@ -226,7 +226,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                       ),
                       Padding(
                         padding: const EdgeInsets.all(15.0),
-                        child: DeliveryButton(
+                        child: DeliveryButton.initial(
                           label: 'Finalizar',
                           onPressed: () {
                             final isValid =

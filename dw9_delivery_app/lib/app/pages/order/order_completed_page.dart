@@ -9,7 +9,7 @@ class OrderCompletedPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(68, 31, 75, 1),
+      backgroundColor: const Color.fromRGBO(68, 31, 75, 1),
       body: SingleChildScrollView(
         child: Center(
           child: Column(
