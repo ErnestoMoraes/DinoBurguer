@@ -1,3 +1,4 @@
+import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:flutter/material.dart';
 
 class DeliveryButton extends StatelessWidget {
@@ -20,7 +21,14 @@ class DeliveryButton extends StatelessWidget {
       height: height,
       child: ElevatedButton(
         onPressed: onPressed,
-        child: Text(label),
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          foregroundColor: MaterialStateProperty.all<Color>(Colors.black),
+        ),
+        child: Text(
+          label,
+          style: context.textStyles.textExtraBold.copyWith(fontSize: 18, color: const Color.fromRGBO(68, 31, 75, 1)),
+        ),
       ),
     );
   }

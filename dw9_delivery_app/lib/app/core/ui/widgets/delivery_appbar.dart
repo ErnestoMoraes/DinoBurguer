@@ -5,8 +5,8 @@ class DeliveryAppbar extends AppBar {
       : super(
           elevation: elevation,
           title: Image.asset(
-            'assets/images/vaquinhaburguer.png',
-            width: 80,
+            'assets/images/logo_dino_remove.png',
+            width: 220,
           ),
         );
 }

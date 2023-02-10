@@ -9,29 +9,21 @@ class SplashPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ColoredBox(
-        color: const Color(0XFF140E0E),
+        color: const Color.fromRGBO(68, 31, 75, 1),
         child: Stack(
           children: [
-            Align(
-              alignment: Alignment.bottomCenter,
-              child: SizedBox(
-                width: context.screenWidth,
-                child:
-                    Image.asset('assets/images/lanche.png', fit: BoxFit.cover),
-              ),
-            ),
             Center(
               child: Column(
                 children: [
                   SizedBox(
-                    height: context.percentHeight(.3),
+                    height: context.percentHeight(.35),
                   ),
-                  Image.asset('assets/images/logo.png'),
+                  Image.asset('assets/images/logo_dino.png'),
                   SizedBox(
                     height: context.percentHeight(0.1),
                   ),
                   DeliveryButton(
-                    width: context.percentHeight(0.2),
+                    width: context.percentHeight(0.4),
                     label: 'ACESSAR',
                     onPressed: () {
                       Navigator.of(context).popAndPushNamed('/home');

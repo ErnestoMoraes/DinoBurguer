@@ -13,7 +13,7 @@ class ThemeConfig {
   static final theme = ThemeData(
     scaffoldBackgroundColor: Colors.white,
     appBarTheme: const AppBarTheme(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color.fromRGBO(68, 31, 75, 1),
       elevation: 0,
       centerTitle: true,
       iconTheme: IconThemeData(color: Colors.black),
