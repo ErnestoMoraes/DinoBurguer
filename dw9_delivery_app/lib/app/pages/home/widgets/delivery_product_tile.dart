@@ -45,7 +45,8 @@ class DeliveryProductTile extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
                       product.name,
-                      style: context.textStyles.textBold.copyWith(fontSize: 16),
+                      style: context.textStyles.textExtraBold
+                          .copyWith(fontSize: 20),
                     ),
                   ),
                   Padding(
@@ -53,26 +54,37 @@ class DeliveryProductTile extends StatelessWidget {
                     child: Text(
                       product.description,
                       style:
-                          context.textStyles.textRegular.copyWith(fontSize: 12),
+                          context.textStyles.textRegular.copyWith(fontSize: 13),
                     ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 10),
                     child: Text(
                       product.price.currencyPTBR,
-                      style: context.textStyles.textMedium.copyWith(
-                          fontSize: 12, color: context.colors.secondary),
+                      style: context.textStyles.textBold.copyWith(
+                        fontSize: 13,
+                        color: context.colors.secondary,
+                      ),
                     ),
                   ),
                 ],
               ),
             ),
-            FadeInImage.assetNetwork(
-              placeholder: 'assets/images/loading.gif',
-              image: product.image,
-              height: 100,
-              width: 100,
-              fit: BoxFit.contain,
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                border: Border.all(
+                  color: context.colors.secondary,
+                  width: 2,
+                ),
+              ),
+              child: FadeInImage.assetNetwork(
+                placeholder: 'assets/images/loading.gif',
+                image: product.image,
+                height: 100,
+                width: 100,
+                fit: BoxFit.cover,
+              ),
             ),
           ],
         ),
