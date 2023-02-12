@@ -57,9 +57,12 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                             orderProduct:
                                 orders.isNotEmpty ? orders.first : null,
                           ),
-                          const Divider(
-                            color: Color.fromRGBO(68, 31, 75, 0.4),
-                            thickness: 0.5,
+                           Padding(
+                            padding:  const EdgeInsets.symmetric(horizontal: 10),
+                            child:  Divider(
+                              color: Colors.grey[400],
+                              thickness: 0.5,
+                            ),
                           )
                         ],
                       );

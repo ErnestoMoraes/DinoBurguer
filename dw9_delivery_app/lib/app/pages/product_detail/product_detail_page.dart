@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dw9_delivery_app/app/core/extensions/formatter_extension.dart';
 import 'package:dw9_delivery_app/app/core/ui/base_state/base_state.dart';
 import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
+import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_increment_decrement_button.dart';
@@ -72,7 +73,7 @@ class _ProductDetailPageState
     return Scaffold(
       appBar: DeliveryAppbar(),
       body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
             width: context.screenWidth,
@@ -92,8 +93,12 @@ class _ProductDetailPageState
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
+              textAlign: TextAlign.center,
               widget.product.name,
-              style: context.textStyles.textExtraBold.copyWith(fontSize: 22),
+              style: context.textStyles.textExtraBold.copyWith(
+                fontSize: 24,
+                color: context.colors.primary,
+              ),
             ),
           ),
           const SizedBox(
@@ -103,8 +108,24 @@ class _ProductDetailPageState
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: SingleChildScrollView(
-                child: Text(
-                  widget.product.description,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Ingredientes',
+                      style: context.textStyles.textExtraBold.copyWith(
+                        fontSize: 18,
+                        color: context.colors.primary,
+                      ),
+                    ),
+                    Text(
+                      widget.product.description,
+                      style: context.textStyles.textMedium.copyWith(
+                        fontSize: 16,
+                        color: context.colors.primary,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ),

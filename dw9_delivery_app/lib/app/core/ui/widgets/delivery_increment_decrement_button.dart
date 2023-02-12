@@ -37,33 +37,29 @@ class DeliveryIncrementDecrementButton extends StatelessWidget {
             onTap: decrementTap,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                '-',
-                style: context.textStyles.textMedium.copyWith(
-                  fontSize: _compact ? 10 : 22,
-                  color: Colors.grey,
-                ),
-              ),
+              child: Icon(
+                Icons.remove,
+                color: context.colors.primary,
+                size: _compact ? 15 : 25,
+              )
             ),
           ),
           Text(
             amount.toString(),
-            style: context.textStyles.textRegular.copyWith(
+            style: context.textStyles.textMedium.copyWith(
               fontSize: _compact ? 13 : 17,
-              color: context.colors.secondary,
+              color: context.colors.primary
             ),
           ),
           InkWell(
             onTap: incrementTap,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Text(
-                '+',
-                style: context.textStyles.textMedium.copyWith(
-                  fontSize: _compact ? 10 : 22,
-                  color: context.colors.secondary,
-                ),
-              ),
+              child: Icon(
+                Icons.add,
+                color: context.colors.primary,
+                size: _compact ? 15 : 25,
+              )
             ),
           ),
         ],
