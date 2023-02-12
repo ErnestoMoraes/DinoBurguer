@@ -4,4 +4,4 @@ Editar Readme
 
 Lembrar de rodar:
 flutter pub run build_runner watch -d
-antes de coemçar!
+antes de coemçar quando for adiconar comando novos!

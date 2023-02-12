@@ -183,6 +183,9 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         controller: addressEC,
                         validator:
                             Validatorless.required('Endereço obrigatório'),
+                        inputFormatters: [
+                          FilteringTextInputFormatter.singleLineFormatter
+                        ],
                         hinText: 'Digite o endereço',
                       ),
                       const SizedBox(
@@ -195,7 +198,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         hinText: 'Digite o CPF',
                         inputFormatters: [
                           FilteringTextInputFormatter.digitsOnly,
-                          CpfInputFormatter(),
+                          CpfInputFormatter()
                         ],
                       ),
                       const SizedBox(
