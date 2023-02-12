@@ -1,4 +1,5 @@
 import 'package:dw9_delivery_app/app/core/ui/helpers/size_extensions.dart';
+import 'package:dw9_delivery_app/app/core/ui/styles/colors_app.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/models/payment_type_model.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +51,10 @@ class PaymentTypesTile extends StatelessWidget {
                         children: [
                           Text(
                             state.selected.title ?? '',
-                            style: context.textStyles.textRegular,
+                            style: context.textStyles.textSemiBold.copyWith(
+                              fontSize: 17,
+                              color: context.colors.primary
+                            ),
                           ),
                           const Icon(Icons.arrow_forward_ios_rounded)
                         ],

@@ -1,3 +1,4 @@
+import 'package:brasil_fields/brasil_fields.dart';
 import 'package:dw9_delivery_app/app/core/extensions/formatter_extension.dart';
 import 'package:dw9_delivery_app/app/core/ui/styles/text_styles.dart';
 import 'package:dw9_delivery_app/app/core/ui/widgets/delivery_appbar.dart';
@@ -10,6 +11,7 @@ import 'package:dw9_delivery_app/app/pages/order/widget/order_field.dart';
 import 'package:dw9_delivery_app/app/pages/order/widget/order_product_title.dart';
 import 'package:dw9_delivery_app/app/pages/order/widget/payment_types_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:validatorless/validatorless.dart';
 
@@ -191,6 +193,10 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
                         controller: documentEC,
                         validator: Validatorless.required('CPF obrigatório'),
                         hinText: 'Digite o CPF',
+                        inputFormatters: [
+                          FilteringTextInputFormatter.digitsOnly,
+                          CpfInputFormatter(),
+                        ],
                       ),
                       const SizedBox(
                         height: 20,
