@@ -58,8 +58,8 @@ class DeliveryProductTile extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 10),
                       child: Text(
                         product.description,
-                        style:
-                            context.textStyles.textRegular.copyWith(fontSize: 13),
+                        style: context.textStyles.textRegular
+                            .copyWith(fontSize: 13),
                       ),
                     ),
                   ),
@@ -76,13 +76,43 @@ class DeliveryProductTile extends StatelessWidget {
                 ],
               ),
             ),
-            FadeInImage.assetNetwork(
-              placeholder: cupertinoActivityIndicator,
-              image: product.image,
-              height: 100,
-              width: 100,
-              fit: BoxFit.cover,
-            ),
+            Stack(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(5.0),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(10),
+                    child: FadeInImage.assetNetwork(
+                      placeholder: cupertinoActivityIndicator,
+                      image: product.image,
+                      height: 100,
+                      width: 110,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
+                Visibility(
+                  visible: orderProduct != null,
+                  child: Container(
+                    height: 20,
+                    width: 20,
+                    decoration: BoxDecoration(
+                      color: context.colors.primary,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        orderProduct?.amount.toString() ?? '0',
+                        style: context.textStyles.textMedium.copyWith(
+                          fontSize: 13,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            )
           ],
         ),
       ),
