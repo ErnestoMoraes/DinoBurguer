@@ -50,9 +50,18 @@ class _HomePageState extends BaseState<HomePage, HomeController> {
                       final product = state.products[index];
                       final orders = state.shoppingBag
                           .where((order) => order.product == product);
-                      return DeliveryProductTile(
-                        product: product,
-                        orderProduct: orders.isNotEmpty ? orders.first : null,
+                      return Column(
+                        children: [
+                          DeliveryProductTile(
+                            product: product,
+                            orderProduct:
+                                orders.isNotEmpty ? orders.first : null,
+                          ),
+                          const Divider(
+                            color: Color.fromRGBO(68, 31, 75, 0.4),
+                            thickness: 0.5,
+                          )
+                        ],
                       );
                     },
                   ),

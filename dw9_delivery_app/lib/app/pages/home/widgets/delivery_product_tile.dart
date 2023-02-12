@@ -7,6 +7,7 @@ import 'package:dw9_delivery_app/app/pages/home/home_controller.dart';
 import 'package:flutter/material.dart';
 
 import 'package:dw9_delivery_app/app/models/product_model.dart';
+import 'package:loading_gifs/loading_gifs.dart';
 import 'package:provider/provider.dart';
 
 class DeliveryProductTile extends StatelessWidget {
@@ -76,7 +77,7 @@ class DeliveryProductTile extends StatelessWidget {
               ),
             ),
             FadeInImage.assetNetwork(
-              placeholder: 'assets/images/loading.gif',
+              placeholder: cupertinoActivityIndicator,
               image: product.image,
               height: 100,
               width: 100,

@@ -18,7 +18,10 @@ class SplashPage extends StatelessWidget {
                   SizedBox(
                     height: context.percentHeight(.35),
                   ),
-                  Image.asset('assets/images/logo_dino.png'),
+                  Padding(
+                    padding:  EdgeInsets.symmetric(horizontal: context.percentHeight(0.01)),
+                    child: Image.asset('assets/images/logo_dino_2.png'),
+                  ),
                   SizedBox(
                     height: context.percentHeight(0.1),
                   ),
