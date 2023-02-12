@@ -112,7 +112,7 @@ class DeliveryProductTile extends StatelessWidget {
                   ),
                 )
               ],
-            )
+            ),
           ],
         ),
       ),
