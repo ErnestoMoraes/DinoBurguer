@@ -93,8 +93,9 @@ class _LoginPageState extends BaseState<LoginPage, LoginController> {
                           height: 30,
                         ),
                         Center(
-                          child: DeliveryButton(
+                          child: DeliveryButton.initial(
                             width: double.infinity,
+                            height: 50,
                             label: 'ENTRAR',
                             onPressed: () {
                               final isValid =

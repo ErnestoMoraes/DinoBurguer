@@ -130,8 +130,9 @@ class _RegisterPageState extends BaseState<RegisterPage, RegisterController> {
                     height: 30,
                   ),
                   Center(
-                    child: DeliveryButton(
+                    child: DeliveryButton.initial(
                       width: double.infinity,
+                      height: 50,
                       label: 'Cadastrar',
                       onPressed: () {
                         final isValid =
