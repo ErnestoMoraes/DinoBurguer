@@ -104,7 +104,7 @@ class _OrderPageState extends BaseState<OrderPage, OrderController> {
           return false;
         },
         child: Scaffold(
-          appBar: DeliveryAppbar(),
+          appBar: DeliveryAppbar.person(),
           body: Form(
             key: formKey,
             child: CustomScrollView(
