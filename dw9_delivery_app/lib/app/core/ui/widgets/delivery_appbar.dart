@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 
 class DeliveryAppbar extends AppBar {
@@ -8,5 +10,10 @@ class DeliveryAppbar extends AppBar {
             'assets/images/logo_dino_remove.png',
             width: 220,
           ),
+          actions: [
+            IconButton(
+                onPressed: () => log('Person'),
+                icon: const Icon(Icons.person))
+          ],
         );
 }
