@@ -13,9 +13,10 @@ repositório GitHub: https://lnkd.in/d5XWY8kz
 
 #flutter #dart #github #desenvolvimento #ImersaoDartWeek #AcademiaDoFlutter #Flutter
 
-Lembrar de rodar:
-flutter pub run build_runner watch -d
-antes de coemçar quando for adiconar comando novos!
+### Lembrar de rodar:
+Quando for alterar algo no core, lembre de executar:
+``` flutter pub run build_runner watch -d ```
+antes de começar quando for adiconar comando novos!
 
 Ta faltando fazer..
 Button Navigator Pages
